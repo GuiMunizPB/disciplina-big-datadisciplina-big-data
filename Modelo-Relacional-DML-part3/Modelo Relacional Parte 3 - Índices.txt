@@ -1,0 +1,19 @@
+Modelo Relacional Parte 3 - Índices 
+Guilherme Muniz de Oliveira - 20220054848
+
+a) Para a consulta que busca registros com cre = 5.0 (SELECT * from aluno where cre = 5.0), o índice melhor indicado seria o B-tree. Esse tipo de índice é eficiente para operações de igualdade e é o padrão utilizado pelo PostgreSQL.
+
+b) Para a consulta que filtra os alunos com idade < 70 (SELECT * from aluno where idade<70), o índice B-tree também é o mais apropriado. Operações de comparação utilizando operadores relacionais (como <) são otimizadas por esse tipo de índice.
+
+c) Para a consulta que utiliza duas condições, idade > 27 e cre < 3.0, o indicado seria a criação de um índice composto B-tree, envolvendo as colunas idade e cre. Com dois filtros sendo utilizados juntos, um índice multicoluna pode proporcionar melhor desempenho, desde que a ordem das colunas esteja de acordo com o select da consulta.
+
+d) Na consulta que calcula a média da idade dos alunos com SELECT avg(idade) não se beneficia do uso de índices. A função de agregação precisa varrer todos os registros da tabela para obter o resultado, o que caracteriza um full table scan.
+
+e) Para a consulta que agrupa os alunos por idade (SELECT idade, count(*) from aluno where curso = "Computação" group by idade), filtrando apenas os que são do curso de "Computação", um índice composto do tipo B-tree sobre as colunas curso e idade seria o mais indicado. O multicoluna ajuda tanto no filtro por curso quanto na organização dos dados para o agrupamento.
+
+f) Para a consulta que se utiliza o operador @> = contém (SELECT * FROM aluno WHERE disciplinas @> '[{"nome": "Cálculo I"}]') verificando se a coluna disciplinas contém um determinado valor no formato JSON, o tipo de índice indicado seria o GIN. Esse tipo de índice faz melhores buscas dentro de estruturas como JSON e melhorando o desempenho da operação.
+
+g) Para a consulta que envolve o intervalo de tempo (SELECT * FROM aluno WHERE data_ingresso BETWEEN '2024-01-01' AND '2024-12-31'),o índice B-tree continua sendo a escolha mais eficiente. Ele permite filtrar os registros de forma ordenada com base na coluna data_ingresso.
+
+h) Para a consulta espacial que utiliza a função ST_DWithin (SELECT * FROM aluno WHERE ST_DWithin(localizacao, ST_MakePoint(-34.88, -7.12)::GEOMETRY, 1000);) que encontra alunos num raio de 1000 metros de uma coordenada geográfica, o índice mais apropriado é o GIST. Índice próprio para dados espaciais e operações geográficas eficientes.
+
