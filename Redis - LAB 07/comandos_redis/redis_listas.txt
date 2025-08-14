@@ -1,0 +1,11 @@
+RPUSHX tarefas "Verificar correio"
+RPUSH tarefas "Verificar correio"
+RPUSH tarefas "Abrir correio"
+LPUSH tarefas "Iniciar sistema"
+LLEN tarefas
+LRANGE tarefas 0 -1
+LSET tarefas 0 "Abrir o correio"
+LRANGE tarefas 0 1
+LPOP tarefas
+LINDEX tarefas 1
+LRANGE tarefas 0 -1

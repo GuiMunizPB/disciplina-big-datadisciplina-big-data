@@ -1,0 +1,6 @@
+ZADD equipe:1 69 Joao 67 Leonardo 70 Sergio 68 Sandra 70 Ana 73 Maria
+ZCARD equipe:1
+ZCOUNT equipe:1 70 75
+ZRANGEBYSCORE equipe:1 65 70
+ZRANK equipe:1 Sandra
+ZREVRANGEBYSCORE equipe:1 69 65

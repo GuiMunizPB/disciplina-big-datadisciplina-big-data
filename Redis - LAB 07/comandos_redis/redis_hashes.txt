@@ -1,0 +1,11 @@
+HEXISTS animais cachorros
+HSET animais cachorros 25
+HSET animais gatos 37
+HSET animais peixes 28
+HGETALL animais
+HMGET animais cachorros gatos
+HSET arvores palmeira 81 pinheiro 23 baoba 1
+HVALS arvores
+HKEYS arvores
+HSET arvores pinheiro 12
+HGET arvores pinheiro

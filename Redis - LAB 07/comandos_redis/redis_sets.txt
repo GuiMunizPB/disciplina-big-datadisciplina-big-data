@@ -1,0 +1,9 @@
+SADD cesta:1 "maçãs" "laranjas" "bananas"
+SMEMBERS cesta:1
+SADD cesta:2 "abacaxis" "bananas" "laranjas"
+SMEMBERS cesta:2
+SINTER cesta:1 cesta:2
+SMOVE cesta:2 cesta:1 "abacaxis"
+SMEMBERS cesta:1
+SUNIONSTORE allbaskets cesta:1 cesta:2
+SREM cesta:1 "laranjas"

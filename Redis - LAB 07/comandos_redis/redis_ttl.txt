@@ -1,0 +1,4 @@
+SET "quote:221" "94.23"
+TTL "quote:221"
+EXPIRE "quote:221" 30
+TTL "quote:221"

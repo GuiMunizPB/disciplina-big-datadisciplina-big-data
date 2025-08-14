@@ -1,0 +1,16 @@
+SET simples "um valor"
+GET simples
+SET usuario:1 "João"
+SET usuario:2 "Maria"
+SET usuario:3 "Pedro"
+KEYS *
+KEYS usuario:*
+SET usuario:11 "Lucas"
+SET usuario:21 "Ana"
+KEYS *1
+SET usuario:31 "Paulo"
+KEYS usuario:2?1
+RENAME usuario:1 usuario:01
+KEYS *1
+DEL usuario:3
+EXPIRE usuario:2 10

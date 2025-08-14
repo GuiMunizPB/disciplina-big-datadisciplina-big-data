@@ -1,0 +1,9 @@
+SET animal "gato"
+GETSET animal "peixe"
+APPEND animal "-espada"
+GETRANGE animal 6 11
+GETRANGE animal 0 4
+SET count 0
+INCR count
+INCRBY count 10
+STRLEN count
