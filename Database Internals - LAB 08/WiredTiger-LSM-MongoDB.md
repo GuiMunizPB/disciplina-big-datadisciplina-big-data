@@ -20,7 +20,7 @@ Com a virada do século XXI, porém, o cenário mudou drasticamente. O crescimen
 
 ### Evolução dos Storage Engines: Uma Perspectiva Histórica
 
-![image.png](/images/InfoGraph1.png)
+![image.png](images/InfoGraph1.png)
 
 * 1980–1990: os B-Trees eram perfeitos para o contexto da época. O espaço de armazenamento era caro e limitado, e os dados eram consultados com muito mais frequência do que atualizados. O design desses engines refletia exatamente essa realidade: priorizar a leitura e economizar espaço.
 
@@ -32,7 +32,7 @@ Com a virada do século XXI, porém, o cenário mudou drasticamente. O crescimen
 
 A decisão do MongoDB de adotar o WiredTiger em 2014 não foi meramente técnica, mas estratégica, refletindo uma compreensão profunda das limitações inerentes ao motor MMAPv1 e das demandas emergentes do mercado de bancos de dados NoSQL.
 
-![image.png](/images/Image2.png)
+![image.png](images/Image2.png)
 
 O MMAPv1, motor original do MongoDB, apresentava limitações críticas que se tornaram cada vez mais evidentes conforme as aplicações cresciam em escala e complexidade. O sistema de locking em nível de database criava gargalos significativos em ambientes de alta concorrência, onde múltiplas operações simultâneas eram essenciais para manter a performance. Esta limitação era particularmente problemática em aplicações web modernas, onde centenas ou milhares de usuários simultâneos são a norma, não a exceção.
 
@@ -56,7 +56,7 @@ Essa abordagem permite que o WiredTiger combine alta performance em escrita com 
 
 ### Fluxo de Escrita Detalhado
 
-![image.png](/images/image3.png)
+![image.png](images/image3.png)
 
 ### Estrutura de Dados LSM
 
@@ -67,7 +67,7 @@ Essa abordagem permite que o WiredTiger combine alta performance em escrita com 
 3. **Compaction**: Processo de merge e reorganização
 4. **Checkpoint**: Persistência consistente de dados
 
-![image.png](/images/image5.png)
+![image.png](images/image5.png)
 
 ---
 
@@ -86,12 +86,12 @@ Essa abordagem permite que o WiredTiger combine alta performance em escrita com 
 | **Space Amplification** |  Baixa (compressão) |  Média |  Alta |
 | **Background I/O** |  Compaction contínua |  Defragmentação |  Minimal |
 
-![image.jpg](/images/image4.jpg)
+![image.jpg](images/image4.jpg)
 ### [Ref](https://raw.githubusercontent.com/wiki/wiredtiger/wiredtiger/attachments/leveldb_wt142.overwrite.jpg)
 
 ### Características de Perfomance
 
-![image.png](/images/image6.png)
+![image.png](images/image6.png)
 
 ### Vantagens do WiredTiger
 
@@ -115,8 +115,8 @@ Essa abordagem permite que o WiredTiger combine alta performance em escrita com 
 
 ### Timeline de Adoção
 
-![image.png](/images/image7.png)
-![image.png](/images/image8.png)
+![image.png](images/image7.png)
+![image.png](images/image8.png)
 
 
 ### Marcos Importantes
@@ -144,7 +144,7 @@ Essa abordagem permite que o WiredTiger combine alta performance em escrita com 
 
 ### Case Study 1: E-commerce Platform - "ShopFast Global" 
 
-![image.png](/images/image9.png)
+![image.png](images/image9.png)
 
 **Contexto Empresarial:**
 A ShopFast Global é uma plataforma de e-commerce que opera em 15 países, processando mais de 2 milhões de pedidos mensais. Antes da migração para WiredTiger, a empresa utilizava MongoDB com MMAPv1, enfrentando sérios gargalos durante eventos promocionais como Black Friday e períodos sazonais.
@@ -179,7 +179,7 @@ Infraestrutura Original (MMAPv1):
 
 **Implementação da Migração:**
 
-![image.png](/images/image12.png)
+![image.png](images/image12.png)
 
 *Fase 1: Planejamento e Testes (Mês 1-2)*
 ```bash
@@ -198,28 +198,28 @@ mongod --storageEngine wiredTiger \
 
 **1. Performance de Escrita:**
 
-![Alt](/images/gif1.gif)
+![Alt](images/gif1.gif)
 
-![Alt](/images/gif2.gif)
+![Alt](images/gif2.gif)
 
 
 **2. Compressão e Storage:**
 
-![Alt](/images/gif3.gif)
+![Alt](images/gif3.gif)
 
 **Economia Total: 30.4TB → 5.8TB (81% redução)**
 
 **3. Impacto Financeiro Mensal:**
 
-![Alt](/images/gif4.gif)
+![Alt](images/gif4.gif)
 
 **4. Impacto no Negócio:**
 
-![image.png](/images/image13.png)
+![image.png](images/image13.png)
 
 ### Case Study 2: IoT Data Platform - "SmartCity Analytics"
 
-![image.png](/images/image10.png)
+![image.png](images/image10.png)
 
 **Contexto Empresarial:**
 A SmartCity Analytics é uma startup que desenvolve soluções de IoT para cidades inteligentes. Eles coletam dados de semáforos, qualidade do ar, tráfego, estacionamentos e consumo energético de 50 cidades médias, processando mais de 2 bilhões de eventos por dia.
@@ -239,7 +239,7 @@ Crescimento: 15% ao mês
 
 **Arquitetura de Dados:**
 
-![image.png](/images/image11.png)
+![image.png](images/image11.png)
 
 
 **Problemas Pré-WiredTiger:**
@@ -290,7 +290,7 @@ db.iot_events.createIndex(
 
 **1. Ingestão de Dados:**
 
-![Alt](/images/gif5.gif)
+![Alt](images/gif5.gif)
 
 
 ```
@@ -327,7 +327,7 @@ Economia de Storage: 86% redução
 
 **Dashboard de Tráfego (query típica):**
 
-![image.png](/images/image14.png)
+![image.png](images/image14.png)
 
 ```javascript
 db.iot_events.aggregate([
@@ -372,7 +372,7 @@ db.iot_events.aggregate([
 
 **4. Impacto Operacional:**
 
-![image.png](/images/image15.png)
+![image.png](images/image15.png)
 
 ---
 
